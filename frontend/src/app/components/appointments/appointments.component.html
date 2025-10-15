@@ -1,0 +1,29 @@
+<h2>Appointment Management</h2>
+
+<form (submit)="onSubmit(); $event.preventDefault();">
+  <input type="text" [(ngModel)]="appointment.patientName" name="patientName" placeholder="Patient Name" required />
+
+  <select [(ngModel)]="appointment.doctorId" name="doctorId" required>
+    <option value="" disabled>Select Doctor</option>
+    <option *ngFor="let d of doctors" [ngValue]="d._id">{{ d.name }}</option>
+  </select>
+
+  <input type="datetime-local" [(ngModel)]="appointment.date" name="date" required />
+  <input type="text" [(ngModel)]="appointment.reason" name="reason" placeholder="Reason" />
+
+  <button type="submit">{{ isEdit ? 'Update' : 'Add' }} Appointment</button>
+</form>
+
+<h3> All Appointments</h3>
+
+<ul>
+  <li *ngFor="let a of appointments">
+    <strong>Patient:</strong> {{ a.patientName }}<br />
+    <strong>Doctor:</strong> {{ a.doctorId?.name || getDoctorName(a.doctorId) }}<br />
+    <strong>Date:</strong> {{ a.date | date:'short' }}<br />
+    <strong>Reason:</strong> {{ a.reason }}<br />
+
+    <button (click)="editAppointment(a)">Edit</button>
+    <button (click)="deleteAppointment(a._id)">Delete</button>
+  </li>
+</ul>

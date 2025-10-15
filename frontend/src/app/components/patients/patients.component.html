@@ -1,0 +1,23 @@
+<h2>Patients</h2>
+
+<form (submit)="onSubmit(); $event.preventDefault();">
+  <input type="text" [(ngModel)]="newPatient.name" name="name" placeholder="Name" required>
+  <input type="number" [(ngModel)]="newPatient.age" name="age" placeholder="Age" required>
+  <input type="text" [(ngModel)]="newPatient.gender" name="gender" placeholder="Gender" required>
+  <input type="text" [(ngModel)]="newPatient.medicalHistory" name="medicalHistory" placeholder="Medical History (comma-separated)">
+  <button type="submit">{{ isEdit ? 'Update' : 'Add' }} Patient</button>
+</form>
+
+<!-- Refresh Button -->
+<h3> All Patients</h3>
+
+<ul>
+  <li *ngFor="let patient of patients">
+    {{ patient.name }}, Age: {{ patient.age }}, {{ patient.gender }}<br>
+    History: {{ patient.medicalHistory.join(', ') }}
+
+    <br />
+    <button (click)="editPatient(patient)">Edit</button>
+    <button (click)="deletePatient(patient._id)">Delete</button>
+  </li>
+</ul>

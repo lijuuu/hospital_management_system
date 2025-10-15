@@ -1,0 +1,23 @@
+<h1 style="color:green; text-align: center;">Hospital Management System</h1>
+
+<!-- Section Buttons -->
+<div style="margin-bottom: 20px; ">
+  <button style="color: white; background-color: #4CAF50; width: 100px; height: 30px;" (click)="section = 'doctors'">Doctors</button>
+  <button style="color: white; background-color: #4CAF50; width: 100px; height: 30px;" (click)="section = 'patients'">Patients</button>
+  <button style="color: white; background-color: #4CAF50; width: 100px; height: 30px;" (click)="section = 'appointments'">Appointments</button>
+</div>
+
+<!-- Doctors Section -->
+<div *ngIf="section === 'doctors'">
+  <app-doctors></app-doctors>
+</div>
+
+<!-- Patients Section -->
+<div *ngIf="section === 'patients'">
+  <app-patients></app-patients>
+</div>
+
+<!-- Appointments Section -->
+<div *ngIf="section === 'appointments'">
+  <app-appointments></app-appointments>
+</div>

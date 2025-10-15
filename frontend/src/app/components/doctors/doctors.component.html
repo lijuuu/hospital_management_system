@@ -1,0 +1,23 @@
+<h2>Doctor Management</h2>
+
+<form (submit)="onSubmit(); $event.preventDefault();">
+  <input type="text" [(ngModel)]="doctor.name" name="name" placeholder="Doctor's Name" required>
+
+  <input type="text" [(ngModel)]="doctor.specialization" name="specialization" placeholder="Specialization" required>
+
+  <input type="text" [(ngModel)]="doctor.availability" name="availability" placeholder="Availability" required>
+
+  <button type="submit">{{ isEdit ? 'Update' : 'Add' }} Doctor</button>
+</form>
+
+<h3>All Doctors</h3>
+<ul>
+  <li *ngFor="let doctor of doctors">
+    <strong>Name:</strong> {{ doctor.name }},
+    <strong>Specialization:</strong> {{ doctor.specialization }},
+    <strong>Availability:</strong> {{ doctor.availability }}
+    <br />
+    <button (click)="editDoctor(doctor)">Edit</button>
+    <button (click)="deleteDoctor(doctor._id)">Delete</button>
+  </li>
+</ul>
