@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PatientService {
-  private baseUrl = 'http://localhost:3000/api/patients';
+  private baseUrl = 'https://hospital-management-system-2kp0.onrender.comapi/patients';
 
   constructor(private http: HttpClient) {}
 

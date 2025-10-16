@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DoctorService {
-  private baseUrl = 'http://localhost:3000/api/doctors';  // Adjust to your backend URL
+  private baseUrl = 'https://hospital-management-system-2kp0.onrender.com/api/doctors';  // Adjust to your backend URL
 
   constructor(private http: HttpClient) {}
 
